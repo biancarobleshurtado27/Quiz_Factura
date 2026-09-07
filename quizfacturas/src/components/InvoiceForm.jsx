@@ -89,7 +89,7 @@ const InvoiceForm = ({ addInvoice }) => {
 
         <fieldset>
           <legend>Datos de Factura *</legend>
-          <input type="text" placeholder="N° Factura" value={factura.numero} onChange={(e) => setFactura({...factura, numero: e.target.value})} )} />
+          <input type="text" placeholder="Número de Factura" value={factura.numero} onChange={(e) => setFactura({...factura, numero: e.target.value})} />
           <input type="date" value={factura.fecha} onChange={(e) => setFactura({...factura, fecha: e.target.value})} />
         </fieldset>
 
