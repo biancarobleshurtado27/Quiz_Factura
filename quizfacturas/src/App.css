@@ -1,0 +1,35 @@
+* { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background-color: #f4f7f6; margin: 0; padding: 20px; }
+.app-container { max-width: 1200px; margin: auto; }
+h1 { text-align: center; color: #333; }
+
+.main-layout { display: flex; gap: 20px; margin-top: 20px; }
+.left-panel { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+.right-panel { flex: 1.5; }
+
+.form-container, .list-container, .empty-view { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+fieldset { border: 1px solid #ddd; border-radius: 5px; margin-bottom: 15px; padding: 10px; }
+legend { font-weight: bold; color: #2c3e50; padding: 0 5px; }
+input { width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; }
+.item-row { display: flex; gap: 10px; align-items: center; }
+.item-row input { margin-bottom: 0; }
+button { padding: 8px 15px; background: #3498db; color: white; border: none; border-radius: 4px; cursor: pointer; }
+button:hover { background: #2980b9; }
+.btn-save { background: #27ae60; width: 100%; font-size: 16px; margin-top: 10px; }
+.btn-save:hover { background: #2ecc71; }
+.error-msg { color: #e74c3c; background: #fadbd8; padding: 10px; border-radius: 5px; margin-bottom: 10px; }
+
+.invoice-item { background: #ecf0f1; padding: 10px; margin-bottom: 10px; border-radius: 5px; cursor: pointer; border-left: 4px solid #3498db; transition: 0.2s; }
+.invoice-item:hover { background: #d6eaf8; }
+.empty-list, .empty-view { text-align: center; color: #7f8c8d; padding: 40px; border: 2px dashed #bdc3c7; border-radius: 8px; }
+
+/* Diseño de Factura Real */
+.invoice-paper { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+.invoice-header { display: flex; justify-content: space-between; border-bottom: 2px solid #333; padding-bottom: 20px; margin-bottom: 20px; }
+.invoice-client { background: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+.invoice-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+.invoice-table th, .invoice-table td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+.invoice-table th { background: #2c3e50; color: white; }
+.invoice-totals { display: flex; justify-content: flex-end; }
+.invoice-totals div { text-align: right; min-width: 250px; }
+.invoice-totals h3 { color: #c0392b; border-top: 2px solid #333; padding-top: 10px; margin-top: 10px; }
