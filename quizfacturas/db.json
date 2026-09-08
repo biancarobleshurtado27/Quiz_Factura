@@ -1,29 +1,369 @@
 {
   "facturas": [
     {
-      "id": "Gtpb7Z-30wY",
+      "id": "FAC-001",
       "emisor": {
-        "nombre": "1234",
-        "ruc": "12345"
+        "nombre": "TechStore S.A.",
+        "ruc": "123456789"
       },
       "cliente": {
-        "nombre": "1234",
-        "direccion": "1234"
+        "nombre": "Juan Pérez",
+        "direccion": "juan.perez@email.com"
       },
       "factura": {
-        "numero": "12345",
-        "fecha": "2026-09-04"
+        "numero": "FAC-001",
+        "fecha": "2024-05-10"
       },
       "items": [
         {
-          "descripcion": "234",
+          "descripcion": "Teclado Mecánico",
+          "cantidad": 2,
+          "precio": 25
+        },
+        {
+          "descripcion": "Monitor 24 pulgadas",
           "cantidad": 1,
-          "precio": 0
+          "precio": 180
+        },
+        {
+          "descripcion": "Mouse Inalámbrico",
+          "cantidad": 3,
+          "precio": 12
         }
       ],
-      "subtotal": 0,
-      "impuesto": 0,
-      "total": 0
+      "subtotal": 266,
+      "impuesto": 39.9,
+      "total": 305.9
+    },
+    {
+      "id": "FAC-002",
+      "emisor": {
+        "nombre": "Librería Central",
+        "ruc": "987654321"
+      },
+      "cliente": {
+        "nombre": "María Gómez",
+        "direccion": "m Gomez"
+      },
+      "factura": {
+        "numero": "FAC-002",
+        "fecha": "2024-05-12"
+      },
+      "items": [
+        {
+          "descripcion": "Cuaderno Universitario",
+          "cantidad": 5,
+          "precio": 3.5
+        },
+        {
+          "descripcion": "Bolígrafo Azul",
+          "cantidad": 10,
+          "precio": 1.2
+        }
+      ],
+      "subtotal": 29.5,
+      "impuesto": 4.43,
+      "total": 33.93
+    },
+    {
+      "id": "FAC-003",
+      "emisor": {
+        "nombre": "TechStore S.A.",
+        "ruc": "123456789"
+      },
+      "cliente": {
+        "nombre": "Carlos Vargas",
+        "direccion": "calle 45 #12-34"
+      },
+      "factura": {
+        "numero": "FAC-003",
+        "fecha": "2026-08-12"
+      },
+      "items": [
+        {
+          "descripcion": "Silla Ergonómica",
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "descripcion": "Webcam HD",
+          "cantidad": 2,
+          "precio": 45
+        }
+      ],
+      "subtotal": 240,
+      "impuesto": 36,
+      "total": 276
+    },
+    {
+      "id": "FAC-004",
+      "emisor": {
+        "nombre": "Servicios Nube S.A.",
+        "ruc": "11223344"
+      },
+      "cliente": {
+        "nombre": "Empresa XYZ",
+        "direccion": "avenida siempreviva"
+      },
+      "factura": {
+        "numero": "FAC-004",
+        "fecha": "2026-08-05"
+      },
+      "items": [
+        {
+          "descripcion": "Hosting Anual",
+          "cantidad": 1,
+          "precio": 120
+        },
+        {
+          "descripcion": "Dominio .com",
+          "cantidad": 1,
+          "precio": 15
+        }
+      ],
+      "subtotal": 135,
+      "impuesto": 20.25,
+      "total": 155.25
+    },
+    {
+      "id": "FAC-005",
+      "emisor": {
+        "nombre": "Café del Valle",
+        "ruc": "55667788"
+      },
+      "cliente": {
+        "nombre": "Restaurante La Esquina",
+        "direccion": "calle 10 #20-30"
+      },
+      "factura": {
+        "numero": "FAC-005",
+        "fecha": "2026-08-12"
+      },
+      "items": [
+        {
+          "descripcion": "Café Premium 1kg",
+          "cantidad": 4,
+          "precio": 25
+        },
+        {
+          "descripcion": "Azúcar Orgánica",
+          "cantidad": 2,
+          "precio": 5
+        }
+      ],
+      "subtotal": 110,
+      "impuesto": 16.5,
+      "total": 126.5
+    },
+    {
+      "id": "FAC-006",
+      "emisor": {
+        "nombre": "TechStore S.A.",
+        "ruc": "123456789"
+      },
+      "cliente": {
+        "nombre": "Ana López",
+        "direccion": "ana.lopez@email.com"
+      },
+      "factura": {
+        "numero": "FAC-006",
+        "fecha": "2026-08-18"
+      },
+      "items": [
+        {
+          "descripcion": "Laptop Dell Inspiron",
+          "cantidad": 1,
+          "precio": 850
+        },
+        {
+          "descripcion": "Mochila Antirrobo",
+          "cantidad": 1,
+          "precio": 45
+        }
+      ],
+      "subtotal": 895,
+      "impuesto": 134.25,
+      "total": 1029.25
+    },
+    {
+      "id": "FAC-007",
+      "emisor": {
+        "nombre": "Ferretería El Clavo",
+        "ruc": "99887766"
+      },
+      "cliente": {
+        "nombre": "Constructora Rápida",
+        "direccion": "obra 15 sector norte"
+      },
+      "factura": {
+        "numero": "FAC-007",
+        "fecha": "2026-08-25"
+      },
+      "items": [
+        {
+          "descripcion": "Cemento 50kg",
+          "cantidad": 10,
+          "precio": 8
+        },
+        {
+          "descripcion": "Pala rectangular",
+          "cantidad": 2,
+          "precio": 12
+        }
+      ],
+      "subtotal": 104,
+      "impuesto": 15.6,
+      "total": 119.6
+    },
+    {
+      "id": "FAC-008",
+      "emisor": {
+        "nombre": "Librería Central",
+        "ruc": "987654321"
+      },
+      "cliente": {
+        "nombre": "Instituto Educativo",
+        "direccion": "calle 8 #14"
+      },
+      "factura": {
+        "numero": "FAC-008",
+        "fecha": "2026-08-28"
+      },
+      "items": [
+        {
+          "descripcion": "Resmas Papel A4",
+          "cantidad": 5,
+          "precio": 6
+        },
+        {
+          "descripcion": "Tóner Impresora HP",
+          "cantidad": 2,
+          "precio": 35
+        }
+      ],
+      "subtotal": 100,
+      "impuesto": 15,
+      "total": 115
+    },
+    {
+      "id": "FAC-009",
+      "emisor": {
+        "nombre": "TechStore S.A.",
+        "ruc": "123456789"
+      },
+      "cliente": {
+        "nombre": "Pedro Ruiz",
+        "direccion": "pedro.ruiz@email.com"
+      },
+      "factura": {
+        "numero": "FAC-009",
+        "fecha": "2026-09-02"
+      },
+      "items": [
+        {
+          "descripcion": "Disco Duro SSD 1TB",
+          "cantidad": 2,
+          "precio": 80
+        },
+        {
+          "descripcion": "Cable HDMI 2m",
+          "cantidad": 3,
+          "precio": 8
+        }
+      ],
+      "subtotal": 184,
+      "impuesto": 27.6,
+      "total": 211.6
+    },
+    {
+      "id": "FAC-010",
+      "emisor": {
+        "nombre": "Autopartes Veloz",
+        "ruc": "12340099"
+      },
+      "cliente": {
+        "nombre": "Taller Mecánico Juárez",
+        "direccion": "ave 3 #45-67"
+      },
+      "factura": {
+        "numero": "FAC-010",
+        "fecha": "2026-09-08"
+      },
+      "items": [
+        {
+          "descripcion": "Aceite Motor 5W30",
+          "cantidad": 5,
+          "precio": 20
+        },
+        {
+          "descripcion": "Filtro de Aire",
+          "cantidad": 3,
+          "precio": 10
+        }
+      ],
+      "subtotal": 130,
+      "impuesto": 19.5,
+      "total": 149.5
+    },
+    {
+      "id": "FAC-011",
+      "emisor": {
+        "nombre": "Ropa y Moda S.A.",
+        "ruc": "44556677"
+      },
+      "cliente": {
+        "nombre": "Boutique Elegancia",
+        "direccion": "centro comercial norte"
+      },
+      "factura": {
+        "numero": "FAC-011",
+        "fecha": "2026-09-15"
+      },
+      "items": [
+        {
+          "descripcion": "Camisetas Algodón",
+          "cantidad": 20,
+          "precio": 7
+        },
+        {
+          "descripcion": "Pantalones Jeans",
+          "cantidad": 10,
+          "precio": 18
+        }
+      ],
+      "subtotal": 320,
+      "impuesto": 48,
+      "total": 368
+    },
+    {
+      "id": "FAC-012",
+      "emisor": {
+        "nombre": "Servicios Nube S.A.",
+        "ruc": "11223344"
+      },
+      "cliente": {
+        "nombre": "Tech Innovators",
+        "direccion": "parque tecnológico"
+      },
+      "factura": {
+        "numero": "FAC-012",
+        "fecha": "2026-09-22"
+      },
+      "items": [
+        {
+          "descripcion": "Licencia Software Premium",
+          "cantidad": 3,
+          "precio": 150
+        },
+        {
+          "descripcion": "Soporte Técnico Mensual",
+          "cantidad": 1,
+          "precio": 100
+        }
+      ],
+      "subtotal": 550,
+      "impuesto": 82.5,
+      "total": 632.5
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

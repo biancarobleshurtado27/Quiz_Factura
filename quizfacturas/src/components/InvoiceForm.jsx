@@ -40,8 +40,9 @@ const InvoiceForm = ({ addInvoice }) => {
     const impuestoCalculado = subtotalCalculado * 0.15; 
     const totalCalculado = subtotalCalculado + impuestoCalculado;
 
+       // 4. Crear objeto de la factura
     const newInvoice = {
-      id: Date.now(),
+      id: factura.numero, // <--- CAMBIO AQUÍ: El ID es el número de factura
       emisor,
       cliente,
       factura,
