@@ -14,7 +14,7 @@ const InvoiceList = ({ invoices, setSelectedInvoice, onDelete }) => {
               <span>{inv.factura.fecha}</span> | <span className="total-badge">Total: ${inv.total.toFixed(2)}</span>
             </div>
             <button 
-              onClick={() => onDelete(inv.id)} 
+              onClick={() => onDelete(inv)} // Pasamos toda la factura, no solo el ID
               style={{ background: '#ef4444', color: 'white', padding: '5px 10px', fontSize: '0.85rem' }}
             >
               Eliminar

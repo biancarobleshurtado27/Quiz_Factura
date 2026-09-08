@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import InvoiceForm from './components/InvoiceForm';
 import InvoiceList from './components/InvoiceList';
 import Invoice from './components/Invoice';
-import * as facturaService from './services/facturaService.jsx'; // Importamos los servicios
+import ConfirmModal from './components/ConfirmModal';
+import * as facturaService from './services/facturaService.jsx';
 import './App.css';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   const [searchId, setSearchId] = useState('');
   const [searchDate, setSearchDate] = useState('');
   const [searchError, setSearchError] = useState('');
+  const [invoiceToDelete, setInvoiceToDelete] = useState(null);
 
   // GET 1: Cargar todas las facturas al iniciar
   useEffect(() => {
@@ -22,7 +24,9 @@ function App() {
       const data = await facturaService.getFacturas();
       setInvoices(data);
       setSearchError('');
-    } catch (err) { console.error('Error:', err); }
+    } catch (err) {
+      console.error('Error:', err);
+    }
   };
 
   // POST: Guardar factura usando el servicio
@@ -30,16 +34,29 @@ function App() {
     try {
       await facturaService.createFactura(newInvoice);
       fetchAllInvoices(); // Actualizamos la lista
-    } catch (err) { console.error('Error al guardar:', err); }
+    } catch (err) {
+      console.error('Error al guardar:', err);
+    }
   };
 
-  // DELETE: Eliminar factura usando el servicio
-  const handleDelete = async (id) => {
+  // Abrir modal de confirmación
+  const handleDelete = (invoice) => {
+    setInvoiceToDelete(invoice); // Esto abre el modal
+  };
+
+  // Confirmar borrado real
+  const confirmDelete = async () => {
+    if (!invoiceToDelete) return;
     try {
-      await facturaService.deleteFactura(id);
-      if (selectedInvoice?.id === id) setSelectedInvoice(null);
+      await facturaService.deleteFactura(invoiceToDelete.id);
+      if (selectedInvoice?.id === invoiceToDelete.id) {
+        setSelectedInvoice(null);
+      }
       fetchAllInvoices();
-    } catch (err) { console.error('Error al eliminar:', err); }
+      setInvoiceToDelete(null); // Cerrar modal
+    } catch (err) {
+      console.error('Error al eliminar:', err);
+    }
   };
 
   // GET 2: Consultar por ID (número de factura)
@@ -62,14 +79,23 @@ function App() {
     if (!searchDate) return;
     try {
       const data = await facturaService.getFacturasByDate(searchDate);
-      if (data.length === 0) setSearchError(`No hay facturas para la fecha: ${searchDate}`);
-      else setSearchError('');
+      if (data.length === 0) {
+        setSearchError(`No hay facturas para la fecha: ${searchDate}`);
+      } else {
+        setSearchError('');
+      }
       setInvoices(data);
-    } catch (err) { console.error('Error:', err); }
+    } catch (err) {
+      console.error('Error:', err);
+    }
   };
 
+  // Limpiar búsquedas y volver a cargar todo
   const clearSearches = () => {
-    setSearchId(''); setSearchDate(''); setSearchError(''); setSelectedInvoice(null);
+    setSearchId('');
+    setSearchDate('');
+    setSearchError('');
+    setSelectedInvoice(null);
     fetchAllInvoices();
   };
 
@@ -89,7 +115,11 @@ function App() {
         </form>
 
         <form onSubmit={handleSearchByDate} className="search-box">
-          <input type="date" value={searchDate} onChange={(e) => setSearchDate(e.target.value)} />
+          <input 
+            type="date" 
+            value={searchDate} 
+            onChange={(e) => setSearchDate(e.target.value)} 
+          />
           <button type="submit">Buscar Fecha</button>
         </form>
 
@@ -101,7 +131,6 @@ function App() {
       <div className="main-layout">
         <div className="left-panel">
           <InvoiceForm addInvoice={addInvoice} />
-          {/* Le pasamos la función de eliminar a la lista */}
           <InvoiceList 
             invoices={invoices} 
             setSelectedInvoice={setSelectedInvoice} 
@@ -119,6 +148,13 @@ function App() {
           )}
         </div>
       </div>
+
+      {/* Modal de Confirmación */}
+      <ConfirmModal 
+        invoice={invoiceToDelete}
+        onConfirm={confirmDelete}
+        onCancel={() => setInvoiceToDelete(null)}
+      />
     </div>
   );
 }

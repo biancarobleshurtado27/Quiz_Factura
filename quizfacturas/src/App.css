@@ -153,3 +153,41 @@ button { padding: 0.625rem 1rem; border: none; border-radius: 0.5rem; font-weigh
   padding: 0.625rem 1.5rem;
 }
 .btn-clear:hover { background: #d1d5db; }
+/* --- MODAL DE CONFIRMACIÓN --- */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transform: scale(1);
+  animation: scaleIn 0.2s ease-out;
+}
+
+.modal-content h3 { color: #ef4444; font-size: 1.5rem; margin-bottom: 1rem; }
+.modal-invoice-info { background: #f3f4f6; padding: 1rem; border-radius: 0.5rem; margin: 1rem 0; font-size: 1.1rem; }
+.modal-warning { color: #6b7280; font-size: 0.875rem; margin-bottom: 1.5rem; }
+
+.modal-actions { display: flex; gap: 1rem; justify-content: center; }
+.btn-cancel { background: #e5e7eb; color: #1f2937; padding: 0.625rem 1.5rem; flex: 1; }
+.btn-cancel:hover { background: #d1d5db; }
+.btn-confirm-delete { background: #ef4444; color: #fff; padding: 0.625rem 1.5rem; flex: 1; }
+.btn-confirm-delete:hover { background: #dc2626; }
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
