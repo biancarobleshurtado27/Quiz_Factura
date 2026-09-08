@@ -1,17 +1,14 @@
 import { useState } from 'react';
 
 const InvoiceForm = ({ addInvoice }) => {
-  // Estados del formulario
   const [emisor, setEmisor] = useState({ nombre: '', ruc: '' });
   const [cliente, setCliente] = useState({ nombre: '', direccion: '' });
   const [factura, setFactura] = useState({ numero: '', fecha: '' });
   const [items, setItems] = useState([{ descripcion: '', cantidad: 1, precio: 0 }]);
   const [error, setError] = useState('');
 
-  // Actualizar ítems dinámicos
   const handleItemChange = (index, field, value) => {
     const newItems = [...items];
-    // Convertir a número si es cantidad o precio
     newItems[index][field] = field === 'cantidad' || field === 'precio' ? Number(value) : value;
     setItems(newItems);
   };
@@ -24,32 +21,27 @@ const InvoiceForm = ({ addInvoice }) => {
     setItems(items.filter((_, i) => i !== index));
   };
 
-  // Enviar formulario
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // 1. Validación de campos obligatorios
     if (!emisor.nombre || !emisor.ruc || !cliente.nombre || !factura.numero || !factura.fecha) {
       setError('Por favor complete todos los campos obligatorios (*).');
       return;
     }
     
-    // 2. Validación de ítems (que tengan descripción y números válidos)
     if (items.some(item => !item.descripcion || item.cantidad <= 0 || item.precio < 0)) {
       setError('Revise los ítems: descripción requerida, cantidad mayor a 0 y precio válido.');
       return;
     }
 
-    setError(''); // Limpiar error si todo está bien
+    setError('');
     
-    // 3. Cálculos derivados del estado (no hardcodeados)
     const subtotalCalculado = items.reduce((acc, item) => acc + (item.cantidad * item.precio), 0);
-    const impuestoCalculado = subtotalCalculado * 0.15; // 15% de IVA
+    const impuestoCalculado = subtotalCalculado * 0.15; 
     const totalCalculado = subtotalCalculado + impuestoCalculado;
 
-    // 4. Crear objeto de la factura
     const newInvoice = {
-      id: Date.now(), // Key única para React
+      id: Date.now(),
       emisor,
       cliente,
       factura,
@@ -59,10 +51,9 @@ const InvoiceForm = ({ addInvoice }) => {
       total: totalCalculado
     };
     
-    // 5. Enviar al componente padre
     addInvoice(newInvoice);
     
-    // 6. Limpiar formulario tras guardar
+    // Limpiar formulario
     setEmisor({ nombre: '', ruc: '' });
     setCliente({ nombre: '', direccion: '' });
     setFactura({ numero: '', fecha: '' });
@@ -90,7 +81,7 @@ const InvoiceForm = ({ addInvoice }) => {
         <fieldset>
           <legend>Datos de Factura *</legend>
           <input type="text" placeholder="N° Factura" value={factura.numero} onChange={(e) => setFactura({...factura, numero: e.target.value})} />
-          <input type="date" value={factura.fecha} onChange={(e) => setFactura({...factura, fecha: e.target.value} )} />
+          <input type="date" value={factura.fecha} onChange={(e) => setFactura({...factura, fecha: e.target.value})} />
         </fieldset>
 
         <fieldset>
@@ -119,7 +110,7 @@ const InvoiceForm = ({ addInvoice }) => {
                 onChange={(e) => handleItemChange(index, 'precio', e.target.value)} 
               />
               {items.length > 1 && (
-                <button type="button" onClick={() => removeItem(index)}>X</button>
+                <button type="button" onClick={() => removeItem(index)} style={{background: '#ef4444', padding: '8px 12px'}}>X</button>
               )}
             </div>
           ))}
