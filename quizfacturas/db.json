@@ -1,0 +1,30 @@
+{
+  "facturas": [
+    {
+      "id": "Gtpb7Z-30wY",
+      "emisor": {
+        "nombre": "1234",
+        "ruc": "12345"
+      },
+      "cliente": {
+        "nombre": "1234",
+        "direccion": "1234"
+      },
+      "factura": {
+        "numero": "12345",
+        "fecha": "2026-09-04"
+      },
+      "items": [
+        {
+          "descripcion": "234",
+          "cantidad": 1,
+          "precio": 0
+        }
+      ],
+      "subtotal": 0,
+      "impuesto": 0,
+      "total": 0
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
